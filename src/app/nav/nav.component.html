@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#" (click)="tabNo=0">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" (click)="tabNo=1">Variables</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" (click)="tabNo=2">Hooks</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" (click)="tabNo=3">Tables</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- <sda-variables-parent *ngIf="tabNo === 1"></sda-variables-parent>
+<sda-hooks *ngIf="tabNo === 2"></sda-hooks> -->
+
+<div [ngSwitch]="tabNo">
+  <sda-variables-parent *ngSwitchCase="1"></sda-variables-parent>
+  <sda-hooks *ngSwitchCase="2"></sda-hooks>
+  <sda-tables *ngSwitchCase="3"></sda-tables>
+</div>
+

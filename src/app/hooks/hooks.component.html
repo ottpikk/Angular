@@ -1,0 +1,10 @@
+<div class="container">
+  <div>
+    <button class ="btn btn-primary my-2"  type="button-one" (click)="show = true">Hook 1</button>
+  </div>
+  <div>
+    <button class ="btn btn-success" type="button.two" (click)="show = false">Hook 2</button>
+  </div>
+  <sda-hook-one *ngIf="show" [myInput]="title"></sda-hook-one>
+  <sda-hook-two *ngIf="!show"></sda-hook-two>
+</div>
