@@ -1,10 +1,14 @@
+<input type="text" [(ngModel)]="title" /> 
 <div class="container">
-  <div>
-    <button class ="btn btn-primary my-2"  type="button-one" (click)="show = true">Hook 1</button>
-  </div>
-  <div>
-    <button class ="btn btn-success" type="button.two" (click)="show = false">Hook 2</button>
-  </div>
-  <sda-hook-one *ngIf="show" [myInput]="title"></sda-hook-one>
-  <sda-hook-two *ngIf="!show"></sda-hook-two>
+     <div>
+        <button class="btn btn-primary my-2" type="button" (click)="show = true">HOOK 1</button>
+     </div>
+     <div>
+        <button class="btn btn-success" type="button" (click)="show = false">HOOK 2</button>
+     </div>
+     <sda-hook-one *ngIf="show" [myInput]="title"></sda-hook-one>
+     <sda-hook-two *ngIf="!show"></sda-hook-two>
+     <!-- HIDDEN ATTRIBUTE DOESN'T REMOVE ELEMENT FROM DOM -->
+     <!-- <sda-hook-one [hidden]="show" [myInput]="title"></sda-hook-one>
+     <sda-hook-two [hidden]="!show"></sda-hook-two> -->
 </div>

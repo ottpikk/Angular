@@ -1,17 +1,17 @@
-import { Component, OnInit,  } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'sda-root',
   templateUrl: './app.component.html',
-  // template:
-  //<button>Hello world</button>
+  // template: `
+  // <button>Hello World it is from TS file</button>
+  // `,
   styleUrls: ['./app.component.scss']
-  //styles: ['p{color: green}']
+  // styles: [`
+  // p { color: green; }`]
 })
 export class AppComponent  {
-  title = 'javaremoteee15-first';
-
-  constructor() { }
-
+  
+  constructor() {}
 
 }

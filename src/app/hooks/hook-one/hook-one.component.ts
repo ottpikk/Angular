@@ -35,6 +35,6 @@ export class HookOneComponent implements OnInit {
   ngOnDestroy() {
     console.log('ngOnDestroy');
     console.warn('=============================');
-  }
+  } 
 
 }

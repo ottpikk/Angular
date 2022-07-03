@@ -24,8 +24,8 @@
           <a class="nav-link" href="#" (click)="tabNo=2">Hooks</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" (click)="tabNo=3">Tables</a>
-        </li>
+            <a class="nav-link" href="#" (click)="tabNo=3">Tables</a>
+          </li>
       </ul>
     </div>
   </div>
@@ -37,6 +37,6 @@
 <div [ngSwitch]="tabNo">
   <sda-variables-parent *ngSwitchCase="1"></sda-variables-parent>
   <sda-hooks *ngSwitchCase="2"></sda-hooks>
-  <sda-tables *ngSwitchCase="3"></sda-tables>
+  <sda-tables *ngSwitchCase="3" ></sda-tables>
 </div>
 

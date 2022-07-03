@@ -1,1 +1,72 @@
-<p>tables works!</p>
+<ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-1">
+  <ngb-panel title="Simple Array">
+    <ng-template ngbPanelContent>
+      <table class="table table-boarded">
+        <thead>
+          <tr>
+            <th>No.</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let el of simpleArray">
+            <td>{{ el }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </ng-template>
+  </ngb-panel>
+  <ngb-panel>
+    <ng-template ngbPanelTitle>
+      <span>&#9733; <b>Fancy</b> Array of Objects &#9733;</span>
+    </ng-template>
+    <ng-template ngbPanelContent>
+      <table class="table table-boarded">
+        <thead>
+          <tr>
+            <th>No.</th>
+            <th>Name</th>
+            <th>Department</th>
+            <th>Manager</th>
+            <th>Salary</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr sdaHover *ngFor="let movie of moviesArray;let i = index">
+            <td>{{i + 1}}</td>
+            <td>{{ movie.name }}</td>
+            <td>{{ movie.department }}</td>
+            <td>{{ movie.manager }}</td>
+            <td>{{ movie.salary }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </ng-template>
+  </ngb-panel>
+  <ngb-panel>
+    <ng-template ngbPanelTitle>
+      <span>&#9733; <b>Fancy</b> Object of Objects &#9733;</span>
+    </ng-template>
+    <ng-template ngbPanelContent>
+      <table class="table table-boarded">
+        <thead>
+          <tr>
+            <th>No.</th>
+            <th>Name</th>
+            <th>Department</th>
+            <th>Manager</th>
+            <th>Salary</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let m of moviesObject | keyvalue;let i = index">
+            <td>{{i + 1}}</td>
+            <td [ngStyle]="showStyle ? clumsyStyle : null" (click)="showStyle = !showStyle">{{ m.value.name }}</td>
+            <td>{{ m.value.department }}</td>
+            <td [ngClass]="{'red-color': showStyle}">{{ m.value.manager }}</td>
+            <td [ngClass]="['big-font', 'red-color', 'border']">{{ m.value.salary }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </ng-template>
+  </ngb-panel>
+</ngb-accordion>

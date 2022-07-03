@@ -7,8 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HooksComponent implements OnInit {
   title = 'javaremoteee15-first';
-  constructor() { }
   show: boolean = true;
+  constructor() { }
+
   ngOnInit(): void {
   }
 

@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VariablesParentComponent implements OnInit {
   title = 'javaremoteee15-first';
+
   constructor() { }
 
   ngOnInit(): void {

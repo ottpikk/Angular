@@ -1,64 +1,61 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
-  selector: 'sda-variables-parent-variables',
+  selector: 'sda-variables',
   templateUrl: './variables.component.html',
   styleUrls: ['./variables.component.scss']
 })
 export class VariablesComponent {
-  @Input() exposedVariable: string = 'Hello from child';
-  @Output() myEvent = new EventEmitter<string>(); //string, void, number, boolean, any, null, undefined
-  title = 'javaremoteee15-first';
+  @Input() exposedVariable: string = 'Hello from Child';
+  @Output() myEvent = new EventEmitter<string>();
 
   stringVariable: string = 'this is amazing';
-  numberVariable: number = 10;
+  numberVariable: number = Number('123');
   booleanVariable: boolean = true;
-  arrayOfStrings: string[] = ['a', 'b', 'c'];
-  arrayOfString2: Array<string | number> = ['a', 'b', 'c'];
-  variableAsNull: null = null;
-  variableAsUndefined: undefined = undefined;
-  differentStringInit: string = `this isa a string with a: ${this.stringVariable}`;
+  arrayOfStringI: string[] = ['a', 'b', 'c'];
+  arrayOfStringII: Array<string> = ['one', 'two', 'three'];
+  variableAsNull: null = null; // this is not a mistake, it is a valid value but doesn't make sens to give it null type
+  variableAsUndefined: undefined = undefined; // this is not a mistake, it is a valid value but doesn't make sens to give it undefined type
+  differentStringInit: string = `this is a string which says:  ${this.stringVariable}`;
 
   someVariable: any; // better to use any type than any
   someVariable2: unknown; // better to use unknown type than any
 
-  arrayOfUnknown: Array<unknown> = [1, 'a', true];
-  arrayOfMultipleTypes: Array<string | number | boolean> = [1, 'a', true];
-  objectVariable: object = { name: 'John', age: 30 }; // object type is very general
-  objectVariable2: object = { name: 'John', age: 30, address: { street: 'street1', city: 'city1' } }; // object type is very general
-  objectVariableWithInterface: { breed: string, name: string } = { breed: 'labrador', name: 'Rex' };
-  objectVariableWithInterfaceDif: {[key:string]: string} = { breed: 'labrador', name: 'Rex' };
-  objectVariableWithInterface2: Dog = { breed: 'labrador', name: 'John' };
+  arrayOfUnknown: Array<unknown> = [1, 'two', true];
+  arrayOfMultipleTypes: Array<string | number | boolean> = ['string', 123, true];
+  objectVariable: object = {name: 'John', age: 30}; // object type is very general, it can be any type of object
+  objectVariable2: object = {name: 'John', age: 30, address: {street: 'street1', city: 'city1'}}; // object type is very general, it can be any type of object
+  objectVariableWithInterfaceI: {breed: string, name: string} = {breed: 'labrador', name: 'Rex'}; 
+  objectVariableWithInterfaceIDif: {[key: string]: string} = {breed: 'labrador', name: 'Rex'}; 
+  objectVariableWithInterfaceII: Dog = {breed: 'labrador', name: 'Rex'};
 
-  assignValueFromFunction: number = this.addTwoNumbers(1, 2);
+  assignValueFromFunction: number = this.addTwoNumbers(1, 2); // value is 3
   variableFromEnum: string = Direction.N;
+  variable = () => {};
   private privateVariable: string = 'privateVariable'; // can't be used in HTML file
-
-  variable = function () {
-    return 'test';
-  }
-  variable2 = () => { };
-  variable3 = () => 'test';
-  simpleFunction(): void {
-    console.log('simple function');
-  }
-
   callEventEmitter(): void {
-    this.myEvent.emit('Hello from Child event');
+    this.myEvent.emit('Hello from Child eventEmitter');
+  }
+
+  simpleFunction(): void {
+    console.log('simpleFunction');
   }
 
 
   addTwoNumbers(a: number, b: number): number {
-    return a + b;
+    const x = a; // cannot be changed because it's a const
+    let y = 0;
+    if (b) {
+      y = b;
+    }
+    return x + y;
   }
-
-
 }
 
 export interface Dog {
   breed: string;
   name: string;
-  age?: number;
+  age?: number; // optional property
 }
 
 enum Direction {
@@ -92,8 +89,6 @@ class Audio {
 
 class Post<T> {
   content: T;
-}
+} 
 
 const audioPost: Post<Audio> = new Post<Audio>();
-
-
