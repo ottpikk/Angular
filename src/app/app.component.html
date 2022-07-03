@@ -1,1 +1,21 @@
+<!--
 <p>Hello World!</p>
+<sda-variables exposedVariable="Hello from Parent"></sda-variables>
+<sda-variables (myEvent)="title = $event"></sda-variables>
+<sda-variables [exposedVariable]="title"></sda-variables>
+<sda-variables [exposedVariable]="'title'"></sda-variables>
+-->
+<input type = "text" [(ngModel)]="title"/>
+
+
+<div class="container">
+  <div>
+    <button type="button-one" (click)="show = true">Hook 1</button>
+  </div>
+  <div>
+    <button type="button.two" (click)="show = false">Hook 2</button>
+  </div>
+  <sda-hook-one *ngIf="show" [myInput]="title"></sda-hook-one>
+  <sda-hook-two *ngIf="!show"></sda-hook-two>
+
+</div>
